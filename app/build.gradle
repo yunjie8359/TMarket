@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
+
+    defaultConfig {
+        applicationId "com.richfit.bi.android.tmarket"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile project(":pulltorefresh")
+    compile project(":slidingmenu")
+    compile 'org.springframework.android:spring-android-core:1.0.1.RELEASE'
+    compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+}
